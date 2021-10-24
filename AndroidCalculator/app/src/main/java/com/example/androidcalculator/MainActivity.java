@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 import  android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        number1 = (EditText)findViewById(R.id.number1Field);
-        number2 = (EditText)findViewById(R.id.Number2Field);
+        number1 = findViewById(R.id.number1Field);
+        number2 = findViewById(R.id.Number2Field);
 
-        resultTextField = (TextView)findViewById(R.id.resultText);
+        resultTextField = findViewById(R.id.resultText);
 
     }
 
@@ -71,43 +72,68 @@ public class MainActivity extends AppCompatActivity {
         String value1 = number1.getText().toString();
         String value2 = number2.getText().toString();
 
-        int num1 = Integer.parseInt(value1);
-        int num2 = Integer.parseInt(value2);
+        if(value1 != "" || value2 != ""){
+            double num1 = Double.parseDouble(value1);
+            double num2 = Double.parseDouble(value2);
 
-        int result = num1 + num2;
-        String resultText = String.valueOf(result);
+            double result = num1 + num2;
+            String resultText = String.valueOf(result);
 
-        resultTextField.setText(resultText);
+            resultTextField.setText(resultText);
+        }
     }
 
-    // Substract Method
-    public void Substract(View view){
+    // Subtract Method
+    public void Subtract(View view){
         String value1 = number1.getText().toString();
         String value2 = number2.getText().toString();
 
-        int num1 = Integer.parseInt(value1);
-        int num2 = Integer.parseInt(value2);
+        if(value1 != "" || value2 != ""){
+            double num1 = Double.parseDouble(value1);
+            double num2 = Double.parseDouble(value2);
 
-        int result = num1 - num2;
-        String resultText = String.valueOf(result);
+            double result = num1 - num2;
+            String resultText = String.valueOf(result);
 
-        resultTextField.setText(resultText);
+            resultTextField.setText(resultText);
+        }
     }
 
+    // Multiply Method
+    public void Multiply(View view){
+        String value1 = number1.getText().toString();
+        String value2 = number2.getText().toString();
+
+        if(value1 != "" || value2 != ""){
+            double num1 = Double.parseDouble(value1);
+            double num2 = Double.parseDouble(value2);
+
+            double result = num1 * num2;
+            String resultText = String.valueOf(result);
+
+            resultTextField.setText(resultText);
+        }
+    }
     // Divide Method
     public void Divide(View view){
         String value1 = number1.getText().toString();
         String value2 = number2.getText().toString();
 
-        int num1 = Integer.parseInt(value1);
-        int num2 = Integer.parseInt(value2);
+        double num1 = Double.parseDouble(value1);
+        double num2 = Double.parseDouble(value2);
 
-        if(num2 != 0){
-            int result = num1 / num2;
+        if(num2 != 0 && (value1 != "" || value2 != "")){
+            double result = num1 / num2;
             String resultText = String.valueOf(result);
             resultTextField.setText(resultText);
         }else{
-            resultTextField.setText("Invalid Numbers");
+            resultTextField.setText("Invalid");
         }
+    }
+    // Reset Method
+    public void Reset(View view){
+        number1.setText("");
+        number2.setText("");
+        resultTextField.setText("Result");
     }
 }
