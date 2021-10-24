@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ArithmeticAverage</string>
+    <string name="Instructions">Enter Two Numbers</string>
+    <string name="FirstNumberHint">First Number</string>
+    <string name="SecondNumberHint">Second Number</string>
+    <string name="ButtonText">Calculate</string>
+    <string name="ResetText">Reset</string>
+    <string name="ResultText">Result</string>
+</resources>
